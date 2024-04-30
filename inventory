@@ -1,2 +1,2 @@
-54.196.188.221
-3.94.191.255
+54.196.188.221 apache_package=apache2 php_package=libapache2-mod-php
+3.94.191.255 apache_package=apache2 php_package=libapache2-mod-php
