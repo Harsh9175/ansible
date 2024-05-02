@@ -1,0 +1,44 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index on amz
+    dnf:
+      update_cache: yes
+    when: ansible_distribution == "Amazon"
+
+  - name: update repository index on Ubuntu
+    apt:
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+#ubuntu server
+- hosts: ubuntu_server
+  become: true
+  tasks:
+
+  - name: install on ubuntu
+    apt:
+      name: 
+        - apache2
+        - libapache2-mod-php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+
+#Amazon_server
+- hosts: amz_server
+  become: true
+  tasks:
+
+  - name: install on Amazon
+    dnf:
+      name:
+        - httpd
+        - php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Amazon"

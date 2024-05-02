@@ -1,2 +1,5 @@
-54.196.188.221 apache_package=apache2 php_package=libapache2-mod-php
-3.94.191.255 apache_package=apache2 php_package=libapache2-mod-php
+[ubuntu_server]
+54.91.241.188 apache_package=apache2 php_package=libapache2-mod-php
+
+[amz_server]
+ec2-user@52.87.218.110 apache_package=httpd php_package=php

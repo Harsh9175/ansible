@@ -6,7 +6,7 @@
 
 #Ubuntu
 
-  - name: install
+  - name: install on Ubuntu
     apt:
       name:
         - apache2
@@ -17,7 +17,7 @@
 
 #CentOS
 
-  - name: install
+  - name: install on CentOS
     dnf:
       name: 
         - httpd
@@ -26,9 +26,20 @@
       update_cache: yes
     when: ansible_distribution == "CentOS"
 
+#Amazon
+
+  - name: install on Amazon
+    dnf:
+      name:
+        - httpd
+        - php
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Amazon"
+
 #Opensuse
 
-  - name: install
+  - name: install on Opensuse
     zypper:
       name:
         - apache2
