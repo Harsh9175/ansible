@@ -39,9 +39,12 @@
         - php
       state: latest
       update_cache: yes
+    service:
+      name: httpd
+      state: started
     when: ansible_distribution == "Amazon"
 
-  - name: install on Amazon
+  - name: copy the file 
     tags: httpd,apache2
     copy:
       src: html/index.html
