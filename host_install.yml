@@ -41,6 +41,15 @@
       update_cache: yes
     when: ansible_distribution == "Amazon"
 
+  - name: install on Amazon
+    tags: httpd,apache2
+    copy:
+      src: html/index.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
 #Db server
 - hosts: db_server
   become: true
@@ -64,3 +73,20 @@
       update_cache: yes
     when: ansible_distribution == "Centos"
 
+#Workstation
+- hosts: workstation_server
+  become: true
+  tasks:
+
+  - name: install unzip
+    apt:
+      name: unzip
+
+  - name: install terrafrom 
+    unarchive:
+      src: https://releases.hashicorp.com/terraform/1.8.2/terraform_1.8.2_linux_386.zip
+      dest: /usr/local/bin
+      remote_src: yes
+      owner: root
+      group: root
+      mode: 0755

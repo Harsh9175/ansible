@@ -4,3 +4,6 @@ ec2-user@54.210.225.117 apache_package=httpd php_package=php
 
 [db_server]
 107.21.50.89
+
+[workstation_server]
+44.220.143.169
