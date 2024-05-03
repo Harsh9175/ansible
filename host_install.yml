@@ -5,21 +5,24 @@
   tasks:
 
   - name: update repository index on amz
+    tags: always
     dnf:
       update_cache: yes
     when: ansible_distribution == "Amazon"
 
   - name: update repository index on Ubuntu
+    tags: always
     apt:
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-#ubuntu server
-- hosts: ubuntu_server
+#Web server
+- hosts: web_server
   become: true
   tasks:
 
   - name: install on ubuntu
+    tags: apache2,ubuntu
     apt:
       name: 
         - apache2
@@ -28,13 +31,8 @@
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-
-#Amazon_server
-- hosts: amz_server
-  become: true
-  tasks:
-
   - name: install on Amazon
+    tags: httpd,amazon
     dnf:
       name:
         - httpd
@@ -42,3 +40,27 @@
       state: latest
       update_cache: yes
     when: ansible_distribution == "Amazon"
+
+#Db server
+- hosts: db_server
+  become: true
+  tasks:
+    # in this i have provide to control two different os server
+  - name: installation on Db server - Ubuntu
+    tags: mariadb_ubuntu
+    apt:
+      name:
+        - mariadb-server
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: installation on Db server - Centos
+    tags: mariadb_centos
+    apt:
+      name:
+        - mariadb
+      state: latest
+      update_cache: yes
+    when: ansible_distribution == "Centos"
+
