@@ -39,6 +39,10 @@
         - php
       state: latest
       update_cache: yes
+    when: ansible_distribution == "Amazon"
+
+  - name: start service on Amazon
+    tags: httpd,amazon,apache
     service:
       name: httpd
       state: started
