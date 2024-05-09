@@ -1,9 +1,9 @@
 [web_server]
-100.27.230.45 apache_package=apache2 php_package=libapache2-mod-php
-ec2-user@54.210.225.117 apache_package=httpd php_package=php
+3.85.115.111 apache_package=apache2 php_package=libapache2-mod-php
+ec2-user@54.210.44.178 apache_package=httpd php_package=php
 
 [db_server]
-107.21.50.89
+34.224.69.121
 
 [workstation_server]
-44.220.143.169
+54.91.24.3

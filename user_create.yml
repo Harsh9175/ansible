@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: create a user harsh
+    tags: always
+    user:
+      name: harsh
+      group: root
+
+  - name: send ssh key to authorized file
+    tags: always
+    authorized_key:
+      user: harsh
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4ZnRBy2M+C7XVZnXA2qM8Rna9cN/VSF+1HYNgMpKTH ansible"
+
+  - name: add sudores file 
+    tags: always
+    copy:
+      src: sudoers_harsh
+      dest: /etc/sudoers.d/harsh
+      owner: root
+      group: root
