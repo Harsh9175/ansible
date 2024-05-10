@@ -1,2 +1,10 @@
 Role link 
 https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#using-roles
+
+Template 
+https://www.digitalocean.com/community/tutorials/how-to-create-and-use-templates-in-ansible-playbooks
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html
+
+Vault file decrypt and encrpyt
+https://www.digitalocean.com/community/tutorials/how-to-use-vault-to-protect-sensitive-ansible-data
+https://docs.ansible.com/ansible/latest/vault_guide/index.html
